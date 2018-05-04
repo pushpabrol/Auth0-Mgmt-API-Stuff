@@ -18,7 +18,7 @@ tools.managementApi.getClient({ domain: process.env.Auth0Domain, clientId: proce
     // Use the client...
     client.connections.getAll(function(error, connections){
         if(error)  { console.log(error); return;}
-        var connection = _.find(connections, {name: 'OktaCon', strategy :'samlp'});
+        var connection = _.find(connections, {name: process.env.Connection_Name, strategy :'samlp'});
        
         var subest = _.pick(connection, ['options.domain_aliases','options.signInEndpoint','options.signingCert','options.decryptionKey','options.signOutEndpoint']);
         
