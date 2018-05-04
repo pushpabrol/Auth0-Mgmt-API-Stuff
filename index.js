@@ -26,11 +26,12 @@ tools.managementApi.getClient({ domain: process.env.Auth0Domain, clientId: proce
 
         var identity = _.pick(connection, ['id']);
 
-        console.log(subest);
-
         client.connections.update(identity,subest,function(err, conn){
             if(error) console.log(error);
-            else console.log(conn);
+            else {
+              console.log('...Updated Connection...')
+              console.log(conn);
+            }
 
         });
 
